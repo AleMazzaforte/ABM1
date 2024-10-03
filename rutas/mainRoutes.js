@@ -38,3 +38,4 @@ router.get('/exportarProductos', isLogued, excelController.exportarProductos);
 router.get('/logout', logoutController.getLogout); 
 
 module.exports = router;
+

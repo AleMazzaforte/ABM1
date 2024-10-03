@@ -149,6 +149,27 @@ button:hover {
     margin:  0 auto;
  }
 
+ .file-upload-container {
+    text-align: center; /* Centrar el contenido del contenedor */
+    margin: 20px 0; /* Espacio superior e inferior */
+}
+
+.custom-file-upload {
+    display: inline-block; /* Permite que el botón mantenga su tamaño */
+    padding: 8px 15px; /* Espaciado para el botón */
+    font-size: 1.5rem; /* Tamaño de fuente */
+    background-color: var(--color6); /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
+
+.custom-file-upload:hover {
+    background-color: var(--color7); /* Color de fondo al pasar el cursor */
+}
+
+
 /***************************************** 
 --- Puntos de corte (Media Queries) --- 
 *****************************************/

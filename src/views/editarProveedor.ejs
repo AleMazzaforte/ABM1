@@ -1,48 +1,48 @@
 <%- include('partials/head.ejs') %>
 
-<title>Actualizar Proveedor</title>
+<title>Update Supplier</title>
 
 </head>
 <body>
     <%- include('partials/header.ejs') %>
     
-    <h1>Actualizar Proveedor</h1>
+    <h1>Update Supplier</h1>
     <div class="form-container">
         <form action="/actualizarProveedor/<%= proveedor.idProveedor %>" method="post">
             <table class="form-table">
                 <tr>
-                    <td><label for="nombreProveedor"><h2>Compañía</h2></label></td>
+                    <td><label for="nombreProveedor"><h2>Company</h2></label></td>
                     <td><input type="text" name="nombreProveedor" id="nombreProveedor" value="<%= proveedor.nombreProveedor %>" required></td>
                 </tr>
                 <tr>
-                    <td><label for="contactoProveedor"><h2>Contacto</h2></label></td>
+                    <td><label for="contactoProveedor"><h2>Contact</h2></label></td>
                     <td><input type="text" name="contactoProveedor" id="contactoProveedor" value="<%= proveedor.contactoProveedor %>" required></td>
                 </tr>
                 <tr>
-                    <td><label for="celularProveedor"><h2>Celular</h2></label></td>
+                    <td><label for="celularProveedor"><h2>Cellphone</h2></label></td>
                     <td><input type="tel" name="celularProveedor" id="celularProveedor" value="<%= proveedor.celularProveedor %>" required></td>
                 </tr>
                 <tr>
-                    <td><label for="emailProveedor"><h2>Mail</h2></label></td>
+                    <td><label for="emailProveedor"><h2>Email</h2></label></td>
                     <td><input type="email" name="emailProveedor" id="emailProveedor" value="<%= proveedor.emailProveedor %>" required></td>
                 </tr>
                 <tr>
-                    <td><label for="webProveedor"><h2>Web</h2></label></td>
+                    <td><label for="webProveedor"><h2>Website</h2></label></td>
                     <td><input type="text" name="webProveedor" id="webProveedor" value="<%= proveedor.webProveedor %>" required></td>
                 </tr>
                 <tr>
-                    <td><label for="ordenProveedor"><h2>Mínimo de orden</h2></label></td>
+                    <td><label for="ordenProveedor"><h2>Minimum Order</h2></label></td>
                     <td>
                         <select name="ordenProveedor" id="ordenProveedor" required>
-                            <option value="" <%= proveedor.ordenProveedor === 'No' ? 'selected' : '' %>>Seleccionar</option>
+                            <option value="" <%= proveedor.ordenProveedor === 'No' ? 'selected' : '' %>>Select</option>
                             <option value="No" <%= proveedor.ordenProveedor === 'No' ? 'selected' : '' %>>No</option>
-                            <option value="Si" <%= proveedor.ordenProveedor === 'Si' ? 'selected' : '' %>>Si</option>
+                            <option value="Si" <%= proveedor.ordenProveedor === 'Si' ? 'selected' : '' %>>Yes</option>
                         </select>
                         <input type="hidden" name="minimoOrdenInput" id="minimoOrdenInput" value="<%= proveedor.minimoOrdenInput %>">
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="paisProveedor"><h2>País</h2></label></td>
+                    <td><label for="paisProveedor"><h2>Country</h2></label></td>
                     <td>
                         <select name="paisProveedor" id="paisProveedor" required>
                             <% paises.forEach(pais => { %>
@@ -52,16 +52,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="tipoProveedor"><h2>Tipo</h2></label></td>
+                    <td><label for="tipoProveedor"><h2>Type</h2></label></td>
                     <td>
                         <select name="tipoProveedor" id="tipoProveedor" required>
-                            <option value="fabricante" <%= proveedor.tipoProveedor === 'fabricante' ? 'selected' : '' %>>Fabricante</option>
-                            <option value="vendedor" <%= proveedor.tipoProveedor === 'vendedor' ? 'selected' : '' %>>Vendedor</option>
+                            <option value="fabricante" <%= proveedor.tipoProveedor === 'fabricante' ? 'selected' : '' %>>Manufacturer</option>
+                            <option value="vendedor" <%= proveedor.tipoProveedor === 'vendedor' ? 'selected' : '' %>>Seller</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="condicionDeVenta"><h2>Condición de venta</h2></label></td>
+                    <td><label for="condicionDeVenta"><h2>Sales Condition</h2></label></td>
                     <td>
                         <select name="condicionDeVenta" id="condicionDeVenta" required>
                             <option value="FOB" <%= proveedor.condicionDeVenta === 'FOB' ? 'selected' : '' %>>FOB</option>
@@ -72,31 +72,31 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="lugarDeEntrega"><h2>Lugar de entrega</h2></label></td>
+                    <td><label for="lugarDeEntrega"><h2>Delivery Location</h2></label></td>
                     <td><input type="text" name="lugarDeEntrega" id="lugarDeEntrega" value="<%= proveedor.lugarDeEntrega %>" required></td>
                 </tr>
                 <tr>
-                    <td><label for="fotoProveedor"><h2>Foto</h2></label></td>
+                    <td><label for="fotoProveedor"><h2>Photo</h2></label></td>
                     <td><input type="file" name="fotoProveedor" id="fotoProveedor" accept="image/*" capture="camera"></td>
                 </tr>
                 
                 <tr>
                     <td colspan="2" class="submit-row">
-                        <button type="submit">Actualizar</button>
+                        <button type="submit">Update</button>
                     </td>
                 </tr>
             </table>
         </form>
     </div>
     
-    <a href="/">Volver a la lista de proveedores</a>
+    <a href="/">Back to Supplier List</a>
 
     <div id="dialogMinimoOrden" class="dialog">
         <div class="dialog-content">
             <span class="close-btn" id="closeDialog">&times;</span>
-            <h2>Ingrese el mínimo de orden</h2>
+            <h2>Enter the Minimum Order</h2>
             <input type="number" id="inputMinimoOrdenDialog" min="0">
-            <button id="guardarMinimoOrden">Guardar</button>
+            <button id="guardarMinimoOrden">Save</button>
         </div>
     </div>
 
@@ -105,4 +105,3 @@
     </script>
 </body>
 </html>
-

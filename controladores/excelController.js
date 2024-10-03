@@ -21,17 +21,23 @@ module.exports = {
                 { header: 'Tipo', key: 'tipoProveedor', width: 20 },
                 { header: 'Condición de Venta', key: 'condicionDeVenta', width: 30 },
                 { header: 'Lugar de Entrega', key: 'lugarDeEntrega', width: 30 },
-                { header: 'Foto', key: 'fotoProveedor', width: 30 }
+                { header: 'Foto (Link)', key: 'fotoProveedor', width: 50 }
             ];
             
 
             // Obtener datos de proveedores desde la base de datos
             const proveedoresDatos = await connClientes.query('SELECT * FROM abmProveedores');
-            
-
             const proveedores = proveedoresDatos[0];
+
+            //Ruta para la base de datos
+            //const baseImageUrl = 'https://form.femex.com.ar/public/img/';
+            const baseImageUrl = 'C:/Users/usuario/desktop/abm1/public/img/';
+
+
             // Agregar datos a la hoja de Excel
             proveedores.forEach(proveedor => { 
+                const fotoUrl = proveedor.fotoProveedor ? `${baseImageUrl}${proveedor.fotoProveedor}` : 'No disponible';
+               
                 worksheet.addRow({
                     id: proveedor.idProveedor,
                     nombreProveedor: proveedor.nombreProveedor,
@@ -44,7 +50,7 @@ module.exports = {
                     tipoProveedor: proveedor.tipoProveedor,
                     condicionDeVenta: proveedor.condicionDeVenta,
                     lugarDeEntrega: proveedor.lugarDeEntrega,
-                    fotoProveedor: proveedor.fotoProveedor
+                    fotoProveedor: fotoUrl
                 });
             });
             
@@ -124,3 +130,4 @@ module.exports = {
         }
     }
 };
+
