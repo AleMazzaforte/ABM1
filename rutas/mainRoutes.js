@@ -6,7 +6,7 @@ const uploadFile = require('../src/middlewares/fotoMiddleware');
 const productosController = require('../controladores/productosController');
 const { isLogued, loginSocio } = require('../src/middlewares/authMiddleware');
 const excelController = require('../controladores/excelController');
-const logoutController = require('../controladores/logoutController');
+//const logoutController = require('../controladores/logoutController');
 
 //console.log(file)
 
@@ -35,7 +35,7 @@ router.get('/exportarProveedores', isLogued, excelController.exportarProveedores
 router.get('/exportarProductos', isLogued, excelController.exportarProductos);
 
 //Ruta para Logout
-router.get('/logout', logoutController.getLogout); 
+//router.get('/logout', logoutController.getLogout); 
 
 module.exports = router;
 

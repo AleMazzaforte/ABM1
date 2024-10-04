@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 const flash = require('express-flash');
 const rutas = require('../rutas/mainRoutes');
 const loginRutas = require('../rutas/loginRutas');
-
+require('dotenv').config();
 
 
 
@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, '/../public')));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(session({
-    secret: 'm1-klav3-23cr3ta',
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
 }));
