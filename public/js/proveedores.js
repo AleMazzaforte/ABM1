@@ -108,4 +108,7 @@ function eliminarProveedor(proveedorId) {
 // Cargar los primeros 30 proveedores cuando la página se cargue
 window.onload = cargarProveedores();
 
+/*******************************************************************
+**********************select de categorias***************************
+******************************************************************* */
 

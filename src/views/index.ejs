@@ -17,10 +17,7 @@
                     <td><label for="contactoProveedor"><h2>Contact</h2></label></td>
                     <td><input type="text" name="contactoProveedor" id="contactoProveedor" required></td>
                 </tr>
-                <tr style="display: none;">
-                    <td><label for="passwordProveedor"><h2>Password</h2></label></td>
-                    <td><input type="password" name="passwordProveedor" id="passwordProveedor" value="password" required></td>
-                </tr>
+                
                 <tr>
                     <td><label for="celularProveedor"><h2>Cell phone</h2></label></td>
                     <td><input type="text" name="celularProveedor" id="celularProveedor" required></td>
@@ -33,6 +30,36 @@
                     <td><label for="webProveedor"><h2>Web</h2></label></td>
                     <td><input type="text" name="webProveedor" id="webProveedor" required></td>
                 </tr>
+                <tr>
+                    <td><label for="categoriaPrincipal"><h2>Category (Main)</h2></label></td>
+                    <td>
+                        <select name="categoriaPrincipal" id="categoriaPrincipal" required>
+                            <option value="">Select Main Category</option>
+                            <% categorias.forEach(categoria => { %>
+                                <option value="<%= categoria.name %>"><%= categoria.name %></option>
+                            <% }) %>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="categoriaSecundaria1"><h2>Category (Secondary 1)</h2></label></td>
+                    <td>
+                        <select name="categoriaSecundaria1" id="categoriaSecundaria1" required>
+                            <option value="">Select Secondary Category</option>
+                            <!-- Las opciones se llenarán dinámicamente -->
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="categoriaSecundaria2"><h2>Category (Secondary 2)</h2></label></td>
+                    <td>
+                        <select name="categoriaSecundaria2" id="categoriaSecundaria2" required>
+                            <option value="">Select Secondary Category</option>
+                            <!-- Las opciones se llenarán dinámicamente -->
+                        </select>
+                    </td>
+                </tr>
+                
                 <tr>
                     <td><label for="ordenProveedor"><h2>Minimum order</h2></label></td>
                     <td>
@@ -78,6 +105,11 @@
                 <tr>
                     <td><label for="lugarDeEntrega"><h2>Delivery location</h2></label></td>
                     <td><input type="text" name="lugarDeEntrega" id="lugarDeEntrega" required></td>
+                </tr>
+
+                <tr style="display: hidden;"></tr>
+                    <td><label for="passwordProveedor"><h2>Password</h2></label></td>
+                    <td><input type="password" name="passwordProveedor" id="passwordProveedor" value="password" required></td>
                 </tr>
             </table>    
             <br><br>
@@ -147,6 +179,27 @@
         if (successMessage) {
             alert(successMessage); // Mostrar el alert
         }
+
+        document.getElementById('categoriaPrincipal').addEventListener('change', function() {
+    const selectedCategoryId = this.value;
+    const categoriaSecundaria1 = document.getElementById('categoriaSecundaria1');
+    const categoriaSecundaria2 = document.getElementById('categoriaSecundaria2');
+
+    // Limpiar los selects secundarios
+    categoriaSecundaria1.innerHTML = '<option value="">Select Secondary Category</option>';
+    categoriaSecundaria2.innerHTML = '<option value="">Select Secondary Category</option>';
+
+    // Verificar si se ha seleccionado una categoría principal
+    if (selectedCategoryId) {
+        const selectedCategory = <%- JSON.stringify(categorias) %>.find(c => c.id === selectedCategoryId);
+        if (selectedCategory && selectedCategory.subcategories) {
+            selectedCategory.subcategories.forEach(sub => {
+                categoriaSecundaria1.innerHTML += `<option value="${sub.id}">${sub.name}</option>`;
+                categoriaSecundaria2.innerHTML += `<option value="${sub.id}">${sub.name}</option>`;
+            });
+        }
+    }
+});
     </script>
 
     <script src="/js/proveedores.js"></script>

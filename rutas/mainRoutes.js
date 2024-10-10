@@ -8,6 +8,7 @@ const { isLogued, loginSocio } = require('../src/middlewares/authMiddleware');
 const excelController = require('../controladores/excelController');
 //const logoutController = require('../controladores/logoutController');
 
+
 //console.log(file)
 
 router.get('/', controlador.getIndex )
@@ -36,6 +37,11 @@ router.get('/exportarProductos', isLogued, excelController.exportarProductos);
 
 //Ruta para Logout
 //router.get('/logout', logoutController.getLogout); 
+
+
+
+
+
 
 module.exports = router;
 

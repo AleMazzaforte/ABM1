@@ -3,14 +3,15 @@ const { connClientes } = require('../db/db');
 const bcrypt = require('bcryptjs');
 const { isLogued } = require(path.join(__dirname, '../src/middlewares/authMiddleware'));
 const paises = require('./paises');  // Importa el arreglo de países desde paises.js
+const { categorias } = require('../controladores/categorias');
 
 module.exports = {
 
     // Método para cargar la página de inicio con los países
     getIndex: [isLogued, (req, res) => {
-        try {
+        try { console.log(categorias.length); // Revisa el contenido de la variable
             const esAdmin = req.user.rol === 'Administrador'; // Verifica si el usuario es administrador
-            res.render('index.ejs', { paises, esAdmin });
+            res.render('index.ejs', { paises, esAdmin, categorias });
         } catch (error) {
             console.error('Error al obtener países:', error);
             res.status(500).send('Error al obtener países');

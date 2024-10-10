@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const paises = require('./paises'); // Importar el archivo de países
 
 
+
 module.exports = {    
     // Cargar un nuevo proveedor
     postCargarProveedor: (req, res) => {
@@ -18,7 +19,10 @@ module.exports = {
             paisProveedor, 
             tipoProveedor, 
             condicionDeVenta, 
-            lugarDeEntrega
+            lugarDeEntrega,
+            categoriaPrincipal,
+            categoriaSecundaria1,
+            categoriaSecundaria2
         } = req.body;
     
         // Obtener el nombre del país a partir del ID
@@ -33,8 +37,26 @@ module.exports = {
       
     
         // Agregar los campos adicionales en la consulta SQL
-        const query = 'INSERT INTO abmProveedores (nombreProveedor, contactoProveedor, passwordProveedor, celularProveedor, emailProveedor, webProveedor, ordenProveedor, paisProveedor, tipoProveedor, condicionDeVenta, lugarDeEntrega, fotoProveedor, fechaProveedor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())';
+        const query = 'INSERT INTO abmProveedores (nombreProveedor, contactoProveedor, passwordProveedor, celularProveedor, emailProveedor, webProveedor, ordenProveedor, paisProveedor, tipoProveedor, condicionDeVenta, lugarDeEntrega, fotoProveedor,  categoriaPrincipal, categoriaSecundaria1, categoriaSecundaria2, fechaProveedor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())';
         
+        console.log({
+            nombreProveedor, 
+            contactoProveedor,
+            passwordProveedor,
+            celularProveedor, 
+            emailProveedor, 
+            webProveedor, 
+            minimoOrdenInput, 
+            nombrePais, 
+            tipoProveedor, 
+            condicionDeVenta, 
+            lugarDeEntrega, 
+            categoriaPrincipal,
+            categoriaSecundaria1,
+            categoriaSecundaria2,
+            file: req.file ? req.file.filename : null
+        });
+
         connClientes.execute(query, [
             nombreProveedor, 
             contactoProveedor,
@@ -47,6 +69,9 @@ module.exports = {
             tipoProveedor, 
             condicionDeVenta, 
             lugarDeEntrega, 
+            categoriaPrincipal,
+            categoriaSecundaria1,
+            categoriaSecundaria2,
             req.file ? req.file.filename : null // Verificamos si hay archivo, de lo contrario pasamos null
         ])
         .then(([results1]) => {
