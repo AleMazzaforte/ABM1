@@ -107,7 +107,7 @@
                     <td><input type="text" name="lugarDeEntrega" id="lugarDeEntrega" required></td>
                 </tr>
 
-                <tr style="display: hidden;"></tr>
+                <tr style="display: none;">
                     <td><label for="passwordProveedor"><h2>Password</h2></label></td>
                     <td><input type="password" name="passwordProveedor" id="passwordProveedor" value="password" required></td>
                 </tr>
@@ -129,7 +129,7 @@
     </div>
     <br><br>
 
-    <a href="/validarProveedor">Cargar productos</a>
+   
 
     <div id="dialogMinimoOrden" class="dialog">
         <div class="dialog-content">
@@ -170,12 +170,13 @@
                 </tbody>
             </table>
             <button id="cargarMas" type="button" class="buttonEnviar">Mostrar más</button>
+            <br>
+            <button onclick="window.location.href='/exportarProveedores'" class="buttonEnviar">Descargar Excel Proveedores</button>
+            <button onclick="window.location.href='/exportarProductos'" class="buttonEnviar">Descargar Excel Productos</button>
+    
         </div>
     <% } %>
-    <br>
-    <button onclick="window.location.href='/exportarProveedores'" class="buttonEnviar">Descargar Excel Proveedores</button>
-    <button onclick="window.location.href='/exportarProductos'" class="buttonEnviar">Descargar Excel Productos</button>
-    
+    <a href="/logout">Logout</a>
     <script>
         const params = new URLSearchParams(window.location.search);
         const successMessage = params.get('success');
