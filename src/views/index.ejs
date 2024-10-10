@@ -152,6 +152,9 @@
                         <th>Celular</th>
                         <th>Mail</th>
                         <th>Web</th>
+                        <th>Categoria Principal</th>
+                        <th>Categoria Secundaria</th>
+                        <th>Categoria Secundaria</th>
                         <th>Mínimo de orden</th>
                         <th>País</th>
                         <th>Tipo</th>
@@ -191,11 +194,11 @@
 
     // Verificar si se ha seleccionado una categoría principal
     if (selectedCategoryId) {
-        const selectedCategory = <%- JSON.stringify(categorias) %>.find(c => c.id === selectedCategoryId);
+        const selectedCategory = <%- JSON.stringify(categorias) %>.find(c => c.name === selectedCategoryId);
         if (selectedCategory && selectedCategory.subcategories) {
             selectedCategory.subcategories.forEach(sub => {
-                categoriaSecundaria1.innerHTML += `<option value="${sub.id}">${sub.name}</option>`;
-                categoriaSecundaria2.innerHTML += `<option value="${sub.id}">${sub.name}</option>`;
+                categoriaSecundaria1.innerHTML += `<option value="${sub.name}">${sub.name}</option>`;
+                categoriaSecundaria2.innerHTML += `<option value="${sub.name}">${sub.name}</option>`;
             });
         }
     }

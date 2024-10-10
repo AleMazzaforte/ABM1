@@ -26,6 +26,9 @@ function cargarProveedores() {
                     <td>${proveedor.celularProveedor}</td>
                     <td>${proveedor.emailProveedor}</td>
                     <td>${proveedor.webProveedor}</td>
+                    <td>${proveedor.categoriaPrincipal}</td>
+                    <td>${proveedor.categoriaSecundaria1}</td>
+                    <td>${proveedor.categoriaSecundaria2}</td>                    
                     <td>${proveedor.ordenProveedor}</td>
                     <td>${proveedor.paisProveedor}</td>
                     <td>${proveedor.tipoProveedor}</td>

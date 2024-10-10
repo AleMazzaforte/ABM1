@@ -39,23 +39,6 @@ module.exports = {
         // Agregar los campos adicionales en la consulta SQL
         const query = 'INSERT INTO abmProveedores (nombreProveedor, contactoProveedor, passwordProveedor, celularProveedor, emailProveedor, webProveedor, ordenProveedor, paisProveedor, tipoProveedor, condicionDeVenta, lugarDeEntrega, fotoProveedor,  categoriaPrincipal, categoriaSecundaria1, categoriaSecundaria2, fechaProveedor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())';
         
-        console.log({
-            nombreProveedor, 
-            contactoProveedor,
-            passwordProveedor,
-            celularProveedor, 
-            emailProveedor, 
-            webProveedor, 
-            minimoOrdenInput, 
-            nombrePais, 
-            tipoProveedor, 
-            condicionDeVenta, 
-            lugarDeEntrega, 
-            categoriaPrincipal,
-            categoriaSecundaria1,
-            categoriaSecundaria2,
-            file: req.file ? req.file.filename : null
-        });
 
         connClientes.execute(query, [
             nombreProveedor, 
@@ -69,10 +52,11 @@ module.exports = {
             tipoProveedor, 
             condicionDeVenta, 
             lugarDeEntrega, 
+            req.file ? req.file.filename : null, // Verificamos si hay archivo, de lo contrario pasamos null
             categoriaPrincipal,
             categoriaSecundaria1,
-            categoriaSecundaria2,
-            req.file ? req.file.filename : null // Verificamos si hay archivo, de lo contrario pasamos null
+            categoriaSecundaria2
+           
         ])
         .then(([results1]) => {
             return res.redirect('/?success=Proveedor cargado con éxito');

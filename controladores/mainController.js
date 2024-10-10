@@ -9,7 +9,7 @@ module.exports = {
 
     // Método para cargar la página de inicio con los países
     getIndex: [isLogued, (req, res) => {
-        try { console.log(categorias.length); // Revisa el contenido de la variable
+        try { 
             const esAdmin = req.user.rol === 'Administrador'; // Verifica si el usuario es administrador
             res.render('index.ejs', { paises, esAdmin, categorias });
         } catch (error) {
