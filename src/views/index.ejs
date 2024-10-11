@@ -34,7 +34,7 @@
                     <td><label for="categoriaPrincipal"><h2>Main Category</h2></label></td>
                     <td>
                         <select name="categoriaPrincipal" id="categoriaPrincipal" required>
-                            <option value="">Select Main Category</option>
+                            <option value="">Choose</option>
                             <% categorias.forEach(categoria => { %>
                                 <option value="<%= categoria.name %>"><%= categoria.name %></option>
                             <% }) %>
@@ -45,7 +45,7 @@
                     <td><label for="categoriaSecundaria1"><h2>Sub-Category</h2></label></td>
                     <td>
                         <select name="categoriaSecundaria1" id="categoriaSecundaria1" required>
-                            <option value="">Select Secondary Category</option>
+                            <option value="">Choose</option>
                             <!-- Las opciones se llenarán dinámicamente -->
                         </select>
                     </td>
@@ -54,7 +54,7 @@
                     <td><label for="categoriaSecundaria2"><h2>Sub-Category</h2></label></td>
                     <td>
                         <select name="categoriaSecundaria2" id="categoriaSecundaria2">
-                            <option value="">Select Secondary Category</option>
+                            <option value="">Choose</option>
                             <!-- Las opciones se llenarán dinámicamente -->
                         </select>
                     </td>
@@ -64,7 +64,7 @@
                     <td><label for="ordenProveedor"><h2>Min. order</h2></label></td>
                     <td>
                         <select name="ordenProveedor" id="ordenProveedor" required>                        
-                            <option><h3>Select</h3></option>
+                            <option><h3>Choose</h3></option>
                             <option value="No"><h3>No</h3></option>
                             <option value="Si"><h3>Yes</h3></option>
                         </select>
@@ -75,7 +75,7 @@
                     <td><label for="paisProveedor"><h2>Country</h2></label></td>
                     <td>
                         <select name="paisProveedor" id="paisProveedor" required>
-                            <option value="">Select</option>
+                            <option value="">Choose</option>
                             <% paises.forEach(pais => { %>
                                 <option value="<%= pais.id %>"><%= pais.nombre %></option>
                             <% }) %>
@@ -86,7 +86,7 @@
                     <td><label for="tipoProveedor"><h2>Supplier type</h2></label></td>
                     <td>
                         <select name="tipoProveedor" id="tipoProveedor" required>
-                            <option value="">Select</option>
+                            <option value="">Choose</option>
                             <option value="fabricante"><h3>Manufacturer</h3></option>
                             <option value="vendedor"><h3>Reseller</h3></option>
                         </select>
@@ -96,7 +96,7 @@
                     <td><label for="condicionDeVenta"><h2>Incoterm</h2></label></td>
                     <td>
                         <select name="condicionDeVenta" id="condicionDeVenta" required>
-                            <option value="">Select</option>
+                            <option value="">Choose</option>
                             <option value="FOB"><h3>FOB</h3></option>
                             <option value="FCA"><h3>FCA</h3></option>
                             <option value="CIF"><h3>CIF</h3></option>
@@ -192,8 +192,8 @@
     const categoriaSecundaria2 = document.getElementById('categoriaSecundaria2');
 
     // Limpiar los selects secundarios
-    categoriaSecundaria1.innerHTML = '<option value="">Select Secondary Category</option>';
-    categoriaSecundaria2.innerHTML = '<option value="">Select Secondary Category</option>';
+    categoriaSecundaria1.innerHTML = '<option value="">Choose</option>';
+    categoriaSecundaria2.innerHTML = '<option value="">Choose</option>';
 
     // Verificar si se ha seleccionado una categoría principal
     if (selectedCategoryId) {
