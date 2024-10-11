@@ -5,7 +5,7 @@
     --color4: rgba(0, 0, 0, 0.5);
     --color5: #fff;
     --color6: black;
-    --color7: #45a049;
+    --color7: grey;
 }
 
 
@@ -125,6 +125,13 @@ button:hover {
     width: 69%;
     text-align: center;
     font-family: 'Open Sans', sans-serif; 
+    
+    color: black; /* Texto en negro */
+    -webkit-appearance: none; /* Elimina el estilo predeterminado de iOS */
+    -moz-appearance: none; /* Elimina el estilo predeterminado de Firefox */
+    appearance: none; /* Para otros navegadores */
+
+    
  }
 
  .btn-actualizar, .btn-eliminar {
@@ -170,7 +177,37 @@ button:hover {
     background-color: var(--color7); /* Color de fondo al pasar el cursor */
 }
 
+#buttonLogout {
+    display: inline-block; /* Permite que el botón mantenga su tamaño */
+    padding: 8px 15px; /* Espaciado para el botón */
+    background-color: var(--color6); /* Color de fondo */
+   
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
 
+#buttonLogout:hover {
+    background-color: var(--color7); /* Color de fondo al pasar el cursor */
+}
+
+#aLogout {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+}
+
+#buttonSubmit {
+    font-family: 'Open Sans', sans-serif; 
+    padding: 0 25px;
+    
+
+}
+
+.inputLogin {
+    width: 100px;
+
+}
 /***************************************** 
 --- Puntos de corte (Media Queries) --- 
 *****************************************/
@@ -186,8 +223,16 @@ button:hover {
     }
 
     .form-table th, .form-table td {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         padding: 5px 2px;
+    }
+
+    .form-table th {
+        width: 60%;
+    }
+
+    .form-table td {
+        width: 40%;
     }
 
     .dialog-content {
@@ -202,15 +247,21 @@ button:hover {
     }
 
     input {
-        width: 90%;
+        width: 100%;
+        font-size: 1rem; 
+        font-family: 'Open Sans', sans-serif; 
     }
 
     select { 
-        font-size: 1.2rem; 
+        font-size: 1rem; 
         font-family: 'Open Sans', sans-serif; 
         width: 100%;
+        box-sizing: border-box;
     }
 
+    label {
+        font-size: 1rem;
+    }
 }
 /*media querys+++++++++++++++++++++++++++++++++*/
 

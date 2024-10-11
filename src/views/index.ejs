@@ -123,7 +123,7 @@
             
             <br><br>
                 
-            <button type="submit" class="buttonEnviar">Submit</button>
+            <button type="submit" class="buttonEnviar "><span id="buttonSubmit">Submit</span></button>
                 
         </form>
     </div>
@@ -176,7 +176,8 @@
     
         </div>
     <% } %>
-    <a href="/logout">Logout</a>
+    <button id="buttonLogout"><a href="/logout" id="aLogout">Logout</a></button>
+    
     <script>
         const params = new URLSearchParams(window.location.search);
         const successMessage = params.get('success');
