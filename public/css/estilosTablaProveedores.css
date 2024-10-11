@@ -228,11 +228,12 @@ button:hover {
     }
 
     .form-table th {
-        width: 60%;
+        width: 45%;
+        font-size: 1rem;
     }
 
     .form-table td {
-        width: 40%;
+        width: 55%;
     }
 
     .dialog-content {
@@ -247,7 +248,7 @@ button:hover {
     }
 
     input {
-        width: 98%;
+        width: 100%;
         font-size: 1rem; 
         font-family: 'Open Sans', sans-serif; 
         box-sizing: border-box;
