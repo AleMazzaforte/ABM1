@@ -1,7 +1,7 @@
 const { connClientes } = require('../db/db'); // Asegúrate de importar connClientes
 const bcrypt = require('bcryptjs');
 const paises = require('./paises'); // Importar el archivo de países
-
+const { categorias } = require('../controladores/categorias');
 
 
 module.exports = {    
@@ -96,7 +96,7 @@ module.exports = {
             
             if (proveedorResults.length > 0) {
                 // Renderizar la vista con el proveedor y la lista de países
-                res.render('editarProveedor', { proveedor: proveedorResults[0], paises });
+                res.render('editarProveedor', { proveedor: proveedorResults[0], paises, categorias });
             } else {
                 res.status(404).send('Proveedor no encontrado');
             }
@@ -109,7 +109,7 @@ module.exports = {
     // Actualizar proveedor
     postActualizarProveedor: async (req, res) => {
         const { id } = req.params;
-        const { nombreProveedor, contactoProveedor, celularProveedor, emailProveedor, webProveedor, minimoOrdenInput, paisProveedor, tipoProveedor, condicionDeVenta, lugarDeEntrega } = req.body;
+        const { nombreProveedor, contactoProveedor, celularProveedor, emailProveedor, webProveedor, minimoOrdenInput, paisProveedor, tipoProveedor, condicionDeVenta, lugarDeEntrega, categoriaPrincipal, categoriaSecundaria1, categoriaSecundaria2 } = req.body;
         
         if (!id) {
             return res.status(400).send('El ID del proveedor es necesario');
@@ -138,7 +138,7 @@ module.exports = {
             // Consulta SQL para actualizar el proveedor
             const query = `
                 UPDATE abmProveedores 
-                SET nombreProveedor = ?, contactoProveedor = ?, celularProveedor = ?, emailProveedor = ?, webProveedor = ?, ordenProveedor = ?, paisProveedor = ?, tipoProveedor = ?, condicionDeVenta = ?, lugarDeEntrega = ?, fotoProveedor = ?
+                SET nombreProveedor = ?, contactoProveedor = ?, celularProveedor = ?, emailProveedor = ?, webProveedor = ?, ordenProveedor = ?, paisProveedor = ?, tipoProveedor = ?, condicionDeVenta = ?, lugarDeEntrega = ?, categoriaPrincipal = ?, categoriaSecundaria1 = ?, categoriaSecundaria2 = ?, fotoProveedor = ?
                 WHERE idProveedor = ?
             `;
             
@@ -153,6 +153,9 @@ module.exports = {
                 tipoProveedor, 
                 condicionDeVenta, 
                 lugarDeEntrega, 
+                categoriaPrincipal, // Nuevo campo
+                categoriaSecundaria1, // Nuevo campo
+                categoriaSecundaria2, // Nuevo campo
                 req.body ? req.body.fotoProveedor : null, 
                 id
             ]);

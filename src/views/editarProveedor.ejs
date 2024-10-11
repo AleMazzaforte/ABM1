@@ -12,28 +12,61 @@
             <table class="form-table">
                 <tr>
                     <td><label for="nombreProveedor"><h2>Company</h2></label></td>
-                    <td><input type="text" name="nombreProveedor" id="nombreProveedor" value="<%= proveedor.nombreProveedor %>" required></td>
+                    <td><input type="text" name="nombreProveedor" id="nombreProveedor" value="<%= proveedor.nombreProveedor %>" ></td>
                 </tr>
                 <tr>
                     <td><label for="contactoProveedor"><h2>Contact</h2></label></td>
-                    <td><input type="text" name="contactoProveedor" id="contactoProveedor" value="<%= proveedor.contactoProveedor %>" required></td>
+                    <td><input type="text" name="contactoProveedor" id="contactoProveedor" value="<%= proveedor.contactoProveedor %>" ></td>
                 </tr>
                 <tr>
                     <td><label for="celularProveedor"><h2>Cellphone</h2></label></td>
-                    <td><input type="tel" name="celularProveedor" id="celularProveedor" value="<%= proveedor.celularProveedor %>" required></td>
+                    <td><input type="tel" name="celularProveedor" id="celularProveedor" value="<%= proveedor.celularProveedor %>" ></td>
                 </tr>
                 <tr>
                     <td><label for="emailProveedor"><h2>Email</h2></label></td>
-                    <td><input type="email" name="emailProveedor" id="emailProveedor" value="<%= proveedor.emailProveedor %>" required></td>
+                    <td><input type="email" name="emailProveedor" id="emailProveedor" value="<%= proveedor.emailProveedor %>" ></td>
                 </tr>
                 <tr>
                     <td><label for="webProveedor"><h2>Website</h2></label></td>
-                    <td><input type="text" name="webProveedor" id="webProveedor" value="<%= proveedor.webProveedor %>" required></td>
+                    <td><input type="text" name="webProveedor" id="webProveedor" value="<%= proveedor.webProveedor %>" ></td>
                 </tr>
+                <tr>
+                    <td><label for="categoriaPrincipal"><h2>Categoría Principal</h2></label></td>
+                    <td><select id="categoriaPrincipal" name="categoriaPrincipal">
+                        <option value="">Seleccione una categoría principal</option>
+                        <% categorias.forEach(function(categoria) { %>
+                            <option value="<%= categoria.name %>" <%= proveedor.categoriaPrincipal === categoria.name ? 'selected' : '' %>><%= categoria.name %></option>
+                        <% }); %>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label for="categoriaSecundaria1"><h2>Categoría Secundaria 1</h2></label></td>
+                    <td><select id="categoriaSecundaria1" name="categoriaSecundaria1">
+                        <option value="">Seleccione una subcategoría</option>
+                        <% const categoriaSeleccionada1 = categorias.find(c => c.name === proveedor.categoriaPrincipal); %>
+                        <% if (categoriaSeleccionada1) { %>
+                            <% categoriaSeleccionada1.subcategories.forEach(function(subcategoria) { %>
+                                <option value="<%= subcategoria.name %>" <%= proveedor.categoriaSecundaria1 === subcategoria.name ? 'selected' : '' %>><%= subcategoria.name %></option>
+                            <% }); %>
+                        <% } %>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label for="categoriaSecundaria2"><h2>Categoría Secundaria 2</h2></label></td>
+                    <td><select id="categoriaSecundaria2" name="categoriaSecundaria2">
+                        <option value="">Seleccione una subcategoría</option>
+                        <% const categoriaSeleccionada2 = categorias.find(c => c.name === proveedor.categoriaPrincipal); %>
+                        <% if (categoriaSeleccionada2) { %>
+                            <% categoriaSeleccionada2.subcategories.forEach(function(subcategoria) { %>
+                                <option value="<%= subcategoria.name %>" <%= proveedor.categoriaSecundaria2 === subcategoria.name ? 'selected' : '' %>><%= subcategoria.name %></option>
+                            <% }); %>
+                        <% } %></td>
+                </tr>
+                
                 <tr>
                     <td><label for="ordenProveedor"><h2>Minimum Order</h2></label></td>
                     <td>
-                        <select name="ordenProveedor" id="ordenProveedor" required>
+                        <select name="ordenProveedor" id="ordenProveedor" >
                             <option value="" <%= proveedor.ordenProveedor === 'No' ? 'selected' : '' %>>Select</option>
                             <option value="No" <%= proveedor.ordenProveedor === 'No' ? 'selected' : '' %>>No</option>
                             <option value="Si" <%= proveedor.ordenProveedor === 'Si' ? 'selected' : '' %>>Yes</option>
@@ -44,7 +77,7 @@
                 <tr>
                     <td><label for="paisProveedor"><h2>Country</h2></label></td>
                     <td>
-                        <select name="paisProveedor" id="paisProveedor" required>
+                        <select name="paisProveedor" id="paisProveedor" >
                             <% paises.forEach(pais => { %>
                                 <option value="<%= pais.id %>" <%= proveedor.paisProveedor === pais.nombre ? 'selected' : '' %>><%= pais.nombre %></option>
                             <% }); %>
@@ -54,7 +87,7 @@
                 <tr>
                     <td><label for="tipoProveedor"><h2>Type</h2></label></td>
                     <td>
-                        <select name="tipoProveedor" id="tipoProveedor" required>
+                        <select name="tipoProveedor" id="tipoProveedor" >
                             <option value="fabricante" <%= proveedor.tipoProveedor === 'fabricante' ? 'selected' : '' %>>Manufacturer</option>
                             <option value="vendedor" <%= proveedor.tipoProveedor === 'vendedor' ? 'selected' : '' %>>Seller</option>
                         </select>
@@ -63,7 +96,7 @@
                 <tr>
                     <td><label for="condicionDeVenta"><h2>Sales Condition</h2></label></td>
                     <td>
-                        <select name="condicionDeVenta" id="condicionDeVenta" required>
+                        <select name="condicionDeVenta" id="condicionDeVenta" >
                             <option value="FOB" <%= proveedor.condicionDeVenta === 'FOB' ? 'selected' : '' %>>FOB</option>
                             <option value="FCA" <%= proveedor.condicionDeVenta === 'FCA' ? 'selected' : '' %>>FCA</option>
                             <option value="CIF" <%= proveedor.condicionDeVenta === 'CIF' ? 'selected' : '' %>>CIF</option>
@@ -73,7 +106,7 @@
                 </tr>
                 <tr>
                     <td><label for="lugarDeEntrega"><h2>Delivery Location</h2></label></td>
-                    <td><input type="text" name="lugarDeEntrega" id="lugarDeEntrega" value="<%= proveedor.lugarDeEntrega %>" required></td>
+                    <td><input type="text" name="lugarDeEntrega" id="lugarDeEntrega" value="<%= proveedor.lugarDeEntrega %>" ></td>
                 </tr>
                 <tr>
                     <td><label for="fotoProveedor"><h2>Photo</h2></label></td>
@@ -99,7 +132,36 @@
             <button id="guardarMinimoOrden">Save</button>
         </div>
     </div>
-
+    <script>
+        const categorias = <%= JSON.stringify(categorias) %>;
+    
+        const categoriaPrincipalSelect = document.getElementById('categoriaPrincipal');
+        const categoriaSecundaria1Select = document.getElementById('categoriaSecundaria1');
+        const categoriaSecundaria2Select = document.getElementById('categoriaSecundaria2');
+    
+        categoriaPrincipalSelect.addEventListener('change', function() {
+            const categoriaSeleccionada = categorias.find(c => c.name === this.value);
+    
+            // Limpiar las opciones de los select secundarios
+            categoriaSecundaria1Select.innerHTML = '<option value="">Seleccione una subcategoría</option>';
+            categoriaSecundaria2Select.innerHTML = '<option value="">Seleccione una subcategoría</option>';
+    
+            if (categoriaSeleccionada && categoriaSeleccionada.subcategories) {
+                categoriaSeleccionada.subcategories.forEach(function(subcategoria) {
+                    const option1 = document.createElement('option');
+                    option1.value = subcategoria.name;
+                    option1.textContent = subcategoria.name;
+                    categoriaSecundaria1Select.appendChild(option1);
+    
+                    const option2 = document.createElement('option');
+                    option2.value = subcategoria.name;
+                    option2.textContent = subcategoria.name;
+                    categoriaSecundaria2Select.appendChild(option2);
+                });
+            }
+        });
+    </script>
+    
     <script src="/js/cargaMinima.js"></script>
         
     </script>

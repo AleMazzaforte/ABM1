@@ -75,6 +75,7 @@
                     <td><label for="paisProveedor"><h2>Country</h2></label></td>
                     <td>
                         <select name="paisProveedor" id="paisProveedor" required>
+                            <option value="">Select</option>
                             <% paises.forEach(pais => { %>
                                 <option value="<%= pais.id %>"><%= pais.nombre %></option>
                             <% }) %>
@@ -85,6 +86,7 @@
                     <td><label for="tipoProveedor"><h2>Supplier type</h2></label></td>
                     <td>
                         <select name="tipoProveedor" id="tipoProveedor" required>
+                            <option value="">Select</option>
                             <option value="fabricante"><h3>Manufacturer</h3></option>
                             <option value="vendedor"><h3>Reseller</h3></option>
                         </select>
@@ -94,6 +96,7 @@
                     <td><label for="condicionDeVenta"><h2>Incoterm</h2></label></td>
                     <td>
                         <select name="condicionDeVenta" id="condicionDeVenta" required>
+                            <option value="">Select</option>
                             <option value="FOB"><h3>FOB</h3></option>
                             <option value="FCA"><h3>FCA</h3></option>
                             <option value="CIF"><h3>CIF</h3></option>
@@ -115,9 +118,7 @@
             <br><br>
                 
             <div class="file-upload-container">
-                <label for="fotoProveedor" class="custom-file-upload buttonEnviar"> <!-- Agregar la clase de botón -->
-                    Select photo
-                </label>
+                <label for="fotoProveedor" class="custom-file-upload buttonEnviar">Photo</label>
                 <input type="file" name="fotoProveedor" id="fotoProveedor" accept="image/*" capture="camera" style="display:none;">
             </div>
             
@@ -176,7 +177,7 @@
     
         </div>
     <% } %>
-    <button id="buttonLogout"><a href="/logout" id="aLogout">Logout</a></button>
+    <button id="buttonLogout"><a href="/logout" id="aLogout">LOGOUT</a></button>
     
     <script>
         const params = new URLSearchParams(window.location.search);
