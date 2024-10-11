@@ -4,7 +4,7 @@
     --color3:  lightgray;
     --color4: rgba(0, 0, 0, 0.5);
     --color5: #fff;
-    --color6: #4CAF50;
+    --color6: black;
     --color7: #45a049;
 }
 
@@ -13,7 +13,7 @@
 body {
     
     margin: 0 auto;
-    
+    font-family: 'Open Sans', sans-serif;
 }
 
 header {
@@ -124,6 +124,7 @@ button:hover {
  select {
     width: 69%;
     text-align: center;
+    font-family: 'Open Sans', sans-serif; 
  }
 
  .btn-actualizar, .btn-eliminar {
@@ -200,8 +201,14 @@ button:hover {
         width: 80%;
     }
 
-    input, select { 
+    input {
+        width: 9%;
+    }
+
+    select { 
         font-size: 1.2rem; 
+        font-family: 'Open Sans', sans-serif; 
+        width: 100%;
     }
 
 }
@@ -231,6 +238,7 @@ button:hover {
 
     input, select { /* Aquí también ajustas para pantallas grandes */
         font-size: 1.5rem; /* Agranda el texto en pantallas grandes */
+        width: 100%;
     }
 }
 
@@ -256,7 +264,8 @@ button:hover {
     }
 
     input, select { /* Aquí también ajustas para pantallas grandes */
-        font-size: 1.5rem; /* Agranda el texto en pantallas grandes */
+        font-size: 1.2rem; /* Agranda el texto en pantallas grandes */
+        width: 70%
     }
 
     

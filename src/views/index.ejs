@@ -1,7 +1,7 @@
 <%- include('partials/head.ejs') %>
 
 <title>Add supplier</title>
-<link rel="stylesheet" href="/css/estilosTablaProveedores.css">
+
 </head>
 <body>
 
@@ -31,7 +31,7 @@
                     <td><input type="text" name="webProveedor" id="webProveedor" required></td>
                 </tr>
                 <tr>
-                    <td><label for="categoriaPrincipal"><h2>Category (Main)</h2></label></td>
+                    <td><label for="categoriaPrincipal"><h2>Main Category</h2></label></td>
                     <td>
                         <select name="categoriaPrincipal" id="categoriaPrincipal" required>
                             <option value="">Select Main Category</option>
@@ -42,7 +42,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="categoriaSecundaria1"><h2>Category (Secondary 1)</h2></label></td>
+                    <td><label for="categoriaSecundaria1"><h2>Sub-Category</h2></label></td>
                     <td>
                         <select name="categoriaSecundaria1" id="categoriaSecundaria1" required>
                             <option value="">Select Secondary Category</option>
@@ -51,9 +51,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="categoriaSecundaria2"><h2>Category (Secondary 2)</h2></label></td>
+                    <td><label for="categoriaSecundaria2"><h2>Sub-Category</h2></label></td>
                     <td>
-                        <select name="categoriaSecundaria2" id="categoriaSecundaria2" required>
+                        <select name="categoriaSecundaria2" id="categoriaSecundaria2">
                             <option value="">Select Secondary Category</option>
                             <!-- Las opciones se llenarán dinámicamente -->
                         </select>
@@ -61,7 +61,7 @@
                 </tr>
                 
                 <tr>
-                    <td><label for="ordenProveedor"><h2>Minimum order</h2></label></td>
+                    <td><label for="ordenProveedor"><h2>Min. order</h2></label></td>
                     <td>
                         <select name="ordenProveedor" id="ordenProveedor" required>                        
                             <option><h3>Select</h3></option>
