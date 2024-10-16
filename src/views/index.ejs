@@ -15,12 +15,12 @@
                 </tr>
                 <tr>
                     <td><label for="contactoProveedor"><h2 class="tdTitulo">Contact</h2></label></td>
-                    <td><input type="text" name="contactoProveedor" id="contactoProveedor" required></td>
+                    <td><input type="text" name="contactoProveedor" id="contactoProveedor"></td>
                 </tr>
                 
                 <tr>
                     <td><label for="celularProveedor"><h2 class="tdTitulo">Cell phone</h2></label></td>
-                    <td><input type="text" name="celularProveedor" id="celularProveedor" required></td>
+                    <td><input type="text" name="celularProveedor" id="celularProveedor"></td>
                 </tr>
                 <tr>
                     <td><label for="emailProveedor"><h2 class="tdTitulo">Mail</h2></label></td>
@@ -28,7 +28,7 @@
                 </tr>
                 <tr>
                     <td><label for="webProveedor"><h2 class="tdTitulo">Web</h2></label></td>
-                    <td><input type="text" name="webProveedor" id="webProveedor" required></td>
+                    <td><input type="text" name="webProveedor" id="webProveedor"></td>
                 </tr>
                 <tr>
                     <td><label for="categoriaPrincipal"><h2 class="tdTitulo">Main Category</h2></label></td>
@@ -53,7 +53,7 @@
                 <tr>
                     <td><label for="categoriaSecundaria2"><h2 class="tdTitulo">Sub-Category</h2></label></td>
                     <td>
-                        <select name="categoriaSecundaria2" id="categoriaSecundaria2">
+                        <select name="categoriaSecundaria2" id="categoriaSecundaria2" required>
                             <option value="">Choose</option>
                             <!-- Las opciones se llenarán dinámicamente -->
                         </select>
@@ -63,7 +63,7 @@
                 <tr>
                     <td><label for="ordenProveedor"><h2 class="tdTitulo">Min. order</h2></label></td>
                     <td>
-                        <select name="ordenProveedor" id="ordenProveedor" required>                        
+                        <select name="ordenProveedor" id="ordenProveedor">                        
                             <option><h3>Choose</h3></option>
                             <option value="No"><h3>No</h3></option>
                             <option value="Si"><h3>Yes</h3></option>
@@ -74,8 +74,8 @@
                 <tr>
                     <td><label for="paisProveedor"><h2 class="tdTitulo">Country</h2></label></td>
                     <td>
-                        <select name="paisProveedor" id="paisProveedor" required>
-                            <option value="">Choose</option>
+                        <select name="paisProveedor" id="paisProveedor">
+                            <option value="China">China</option>
                             <% paises.forEach(pais => { %>
                                 <option value="<%= pais.id %>"><%= pais.nombre %></option>
                             <% }) %>
@@ -85,7 +85,7 @@
                 <tr>
                     <td><label for="tipoProveedor"><h2 class="tdTitulo">Supplier type</h2></label></td>
                     <td>
-                        <select name="tipoProveedor" id="tipoProveedor" required>
+                        <select name="tipoProveedor" id="tipoProveedor">
                             <option value="">Choose</option>
                             <option value="fabricante"><h3>Manufacturer</h3></option>
                             <option value="vendedor"><h3>Reseller</h3></option>
@@ -95,7 +95,7 @@
                 <tr>
                     <td><label for="condicionDeVenta"><h2 class="tdTitulo">Incoterm</h2></label></td>
                     <td>
-                        <select name="condicionDeVenta" id="condicionDeVenta" required>
+                        <select name="condicionDeVenta" id="condicionDeVenta">
                             <option value="">Choose</option>
                             <option value="FOB"><h3>FOB</h3></option>
                             <option value="FCA"><h3>FCA</h3></option>
@@ -107,7 +107,7 @@
                 </tr>
                 <tr>
                     <td><label for="lugarDeEntrega"><h2 class="tdTitulo">Incoterm place</h2></label></td>
-                    <td><input type="text" name="lugarDeEntrega" id="lugarDeEntrega" required></td>
+                    <td><input type="text" name="lugarDeEntrega" id="lugarDeEntrega"></td>
                 </tr>
 
                 <tr style="display: none;">
