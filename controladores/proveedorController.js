@@ -27,12 +27,16 @@ module.exports = {
     
         // Obtener el nombre del país a partir del ID
         const paisSeleccionado = paises.find(p => p.id == paisProveedor);
+        
+         if ( paisSeleccionado === undefined) { 
+            nombrePais = 'China'
+         }
+         else if (paisSeleccionado !== undefined ) {
+            nombrePais = paisSeleccionado.nombre;
+              
+         }
     
-        if (!paisSeleccionado) {
-            return res.status(400).send('País no válido');
-        }
-    
-        const nombrePais = paisSeleccionado.nombre;
+        
     
       
     
